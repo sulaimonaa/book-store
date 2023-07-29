@@ -63,6 +63,11 @@ h5 {
   margin: 25px auto;
 }
 
+h2 {
+    color: #6d6c6c;
+    text-transform: uppercase;
+}
+
 form input {
   width: 38%;
   height: 30px;

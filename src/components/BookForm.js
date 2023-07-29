@@ -21,6 +21,7 @@ const BookForm = () => {
 
   return (
     <div className={styles.form_container}>
+      <h2>Add new book</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
