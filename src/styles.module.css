@@ -1,14 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.fontFamily {
+  font-family: 'Montserrat', sans-serif;
+}
 .container_fluid {
   width: 100%;
 }
 
 .header {
   background: #eee;
+  height: 80px;
 }
 
 .container {
   width: 80%;
   margin: 0 auto;
+}
+
+.page_title {
+  margin: 20px auto;
 }
 
 .primary_color {
@@ -18,6 +31,8 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  height: 80px;
+  align-items: center;
 }
 
 ul {
@@ -36,19 +51,55 @@ li {
   text-decoration: none;
 }
 
-.bookList {
+.book_list {
   background: #eee;
-  margin: 5px 0;
-  padding: 20px 10px;
+  margin: 10px auto;
+  padding: 20px;
   border-radius: 5px;
+  height: 150px;
+  align-items: center;
 }
 
-h3 {
-  margin: 10px auto;
+.book_info {
+  width: 50%;
 }
 
-h5 {
-  margin: 10px auto;
+.book_category {
+  color: #09a5e9;
+  font-size: 12px;
+}
+
+.book_title {
+  margin-top: 10px;
+}
+
+.action_author {
+  text-decoration: none;
+  color: #09a5e9;
+  font-size: 12px;
+}
+
+.action_links_btn {
+  margin-top: 20px
+}
+
+.link_flex {
+  display: flex;
+  gap: 20px
+}
+
+.action_links {
+  text-decoration: none;
+  font-size: 12px;
+  color: #09a5e9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 .btn {
@@ -61,11 +112,13 @@ h5 {
 .form_container {
   width: 100%;
   margin: 25px auto;
+  padding: 20px;
 }
 
-h2 {
+.add_new_book {
   color: #6d6c6c;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 form input {
@@ -83,4 +136,39 @@ form input {
   color: #fff;
   border-radius: 5px;
   border: none;
+}
+
+.flex_row {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress_btn {
+  width: 40px;
+}
+
+.current_chapter_title {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.current_chapter_val {
+  font-size: 12px;
+}
+
+.progress_update {
+  background: #09a5e9;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #f8f8f8;
+  font-size: 12px;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
 }

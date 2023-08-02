@@ -7,7 +7,7 @@ const Books = () => (
   <>
     <div className={styles.container}>
       <BookProvider>
-        <h1>Books To Read</h1>
+        <h1 className={styles.page_title}>Books To Read</h1>
         <BookList />
         <BookForm />
       </BookProvider>

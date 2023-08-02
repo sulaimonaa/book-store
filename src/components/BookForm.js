@@ -1,47 +1,40 @@
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { useTheme } from './BookContext';
 import styles from '../styles.module.css';
 
-const BookForm = () => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const { bookCollection, setBookCollection } = useTheme();
+export default function Form() {
+  const [state, setBook] = useState({
+    title: '',
+    author: '',
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newBook = {
-      title,
-      author,
-      id: uuidv4(),
-    };
-
-    setBookCollection([...bookCollection, newBook]);
-  };
+  function handleChange(event) {
+    setBook({
+      ...state,
+      [event.target.name]: event.target.value,
+    });
+  }
 
   return (
     <div className={styles.form_container}>
-      <h2>Add new book</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form>
+        <h2 className={styles.add_new_book}>Add new Book</h2>
         <input
           type="text"
+          value={state.title}
           name="title"
-          id=""
-          placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={handleChange}
+          className={styles.add_new_book_input}
         />
         <input
           type="text"
           name="author"
-          id=""
-          placeholder="Author"
-          onChange={(e) => setAuthor(e.target.value)}
+          onChange={handleChange}
+          className={styles.add_new_author}
         />
-        <button className={styles.subBtn} type="submit">
+        <button type="submit" className={styles.subBtn}>
           Add Book
         </button>
       </form>
     </div>
   );
-};
-export default BookForm;
+}
