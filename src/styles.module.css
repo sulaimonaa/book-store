@@ -6,6 +6,7 @@ body {
 .fontFamily {
   font-family: 'Montserrat', sans-serif;
 }
+
 .container_fluid {
   width: 100%;
 }
@@ -80,12 +81,12 @@ li {
 }
 
 .action_links_btn {
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .link_flex {
   display: flex;
-  gap: 20px
+  gap: 20px;
 }
 
 .action_links {
@@ -94,7 +95,12 @@ li {
   color: #09a5e9;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
