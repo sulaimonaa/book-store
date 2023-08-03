@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { add } from '../redux/books/booksSlice';
+import Button from './Button';
 import styles from '../styles.module.css';
 
 export default function Form() {
@@ -7,12 +11,32 @@ export default function Form() {
     author: '',
   });
 
+  const dispatch = useDispatch();
+
   function handleChange(event) {
+    event.preventDefault();
     setBook({
       ...state,
       [event.target.name]: event.target.value,
     });
   }
+
+  const handleAddBook = (event) => {
+    event.preventDefault();
+    if (state.author && state.title) {
+      const newBook = {
+        item_id: uuidv4(),
+        title: state.title,
+        author: state.author,
+        category: 'not-provided',
+      };
+      setBook({
+        title: '',
+        author: '',
+      });
+      dispatch(add(newBook));
+    }
+  };
 
   return (
     <div className={styles.form_container}>
@@ -31,9 +55,11 @@ export default function Form() {
           onChange={handleChange}
           className={styles.add_new_author}
         />
-        <button type="submit" className={styles.subBtn}>
-          Add Book
-        </button>
+        <Button
+          className={styles.subBtn}
+          clickEvent={handleAddBook}
+          InnerText="Add Book"
+        />
       </form>
     </div>
   );
