@@ -2,7 +2,10 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import styles from '../styles.module.css';
+import { filterByCategory, remove } from '../redux/books/booksSlice';
+import Button from './Button';
 
 function Book({ book }) {
   const circularProgressBarStyle = buildStyles({
@@ -11,10 +14,28 @@ function Book({ book }) {
     pathColor: '#0290ff',
   });
 
+  const dispatch = useDispatch();
+
+  const handleRemove = (event) => {
+    event.preventDefault();
+    dispatch(remove(book.id));
+  };
+
+  const handleCategory = (event) => {
+    event.preventDefault();
+    dispatch(filterByCategory(book.category));
+  };
+
   return (
-    <div className={`${styles.container_fluid} ${styles.flex_row} ${styles.book_list}`}>
+    <div
+      className={`${styles.container_fluid} ${styles.flex_row} ${styles.book_list}`}
+    >
       <div className={styles.book_info}>
-        <span className={styles.book_category}>{book.category}</span>
+        <Button
+          className={styles.book_category}
+          clickEvent={handleCategory}
+          InnerText={book.category}
+        />
         <h2 className={styles.book_title}>
           {' '}
           {book.title}
@@ -29,9 +50,11 @@ function Book({ book }) {
             <Link className={styles.action_links} to="/">
               Comments
             </Link>
-            <Link className={styles.action_links} to="/">
-              Remove
-            </Link>
+            <Button
+              className={styles.action_links}
+              clickEvent={handleRemove}
+              InnerText="Remove"
+            />
             <Link className={styles.action_links} to="/">
               Edit
             </Link>

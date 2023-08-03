@@ -68,6 +68,8 @@ li {
 .book_category {
   color: #09a5e9;
   font-size: 12px;
+  border: none;
+  cursor: pointer;
 }
 
 .book_title {
@@ -93,6 +95,8 @@ li {
   text-decoration: none;
   font-size: 12px;
   color: #09a5e9;
+  border: none;
+  cursor: pointer;
 }
 
 h1,
@@ -142,6 +146,7 @@ form input {
   color: #fff;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 
 .flex_row {
