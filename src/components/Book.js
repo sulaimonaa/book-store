@@ -50,11 +50,13 @@ function Book({ book }) {
             <Link className={styles.action_links} to="/">
               Comments
             </Link>
+            <span className={styles.divider} />
             <Button
               className={styles.action_links}
               clickEvent={handleRemove}
               InnerText="Remove"
             />
+            <span className={styles.divider} />
             <Link className={styles.action_links} to="/">
               Edit
             </Link>
@@ -77,6 +79,7 @@ function Book({ book }) {
           <p className={styles.completed_val}>completed</p>
         </div>
       </div>
+      <span className={styles.divider} />
       <div className={styles.chapter_info}>
         <p className={styles.current_chapter_title}>current chapter</p>
         <p className={styles.current_chapter_val}>
