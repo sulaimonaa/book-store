@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { add } from '../redux/books/booksSlice';
+import { addNewBook } from '../redux/books/booksSlice';
 import Button from './Button';
 import styles from '../styles.module.css';
 
@@ -34,7 +34,7 @@ export default function Form() {
         title: '',
         author: '',
       });
-      dispatch(add(newBook));
+      dispatch(addNewBook(newBook));
     }
   };
 
