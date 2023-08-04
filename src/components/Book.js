@@ -18,7 +18,7 @@ function Book({ book }) {
 
   const handleRemove = (event) => {
     event.preventDefault();
-    dispatch(removeBook(book.id));
+    dispatch(removeBook(book.item_id));
   };
 
   const handleCategory = (event) => {
@@ -94,7 +94,7 @@ function Book({ book }) {
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    item_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,

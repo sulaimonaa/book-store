@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BOOK_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/uVLbJlYI1zNrAzWGMMyC/books';
@@ -7,7 +7,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   try {
     const response = await axios.get(BOOK_URL);
     const books = Object.keys(response.data).map((key) => ({
-      id: key,
+      item_id: key,
       ...response.data[key][0],
     }));
     return books;
@@ -65,6 +65,7 @@ const booksSlice = createSlice({
       })
       .addCase(addNewBook.fulfilled, (state) => {
         state.loading = 'succeded';
+        window.location.reload();
       })
       .addCase(addNewBook.rejected, (state) => {
         state.loading = 'failed';
@@ -74,6 +75,7 @@ const booksSlice = createSlice({
       })
       .addCase(removeBook.fulfilled, (state) => {
         state.loading = 'succeded';
+        window.location.reload();
       })
       .addCase(removeBook.rejected, (state) => {
         state.loading = 'failed';
