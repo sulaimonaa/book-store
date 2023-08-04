@@ -161,7 +161,11 @@ form input {
 }
 
 .progress_btn {
-  width: 40px;
+  width: 60px;
+}
+
+.completed_stat {
+  font-size: 32px;
 }
 
 .current_chapter_title {
