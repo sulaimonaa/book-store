@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from '../styles.module.css';
-import { filterByCategory, remove } from '../redux/books/booksSlice';
+import { filterByCategory, removeBook } from '../redux/books/booksSlice';
 import Button from './Button';
 
 function Book({ book }) {
@@ -18,7 +18,7 @@ function Book({ book }) {
 
   const handleRemove = (event) => {
     event.preventDefault();
-    dispatch(remove(book.id));
+    dispatch(removeBook(book.item_id));
   };
 
   const handleCategory = (event) => {
@@ -64,13 +64,13 @@ function Book({ book }) {
       <div className={styles.flex_row}>
         <div className={styles.progress_btn}>
           <CircularProgressbar
-            value={book.completed}
+            value={book.completed ? book.completed : '25'}
             styles={circularProgressBarStyle}
           />
         </div>
         <div className={styles.flex_column}>
           <h4 className={styles.completed_stat}>
-            {book.completed}
+            {book.completed ? book.completed : '25'}
             {' '}
             %
           </h4>
@@ -93,7 +93,14 @@ function Book({ book }) {
 }
 
 Book.propTypes = {
-  book: PropTypes.shape().isRequired,
+  book: PropTypes.shape({
+    item_id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    completed: PropTypes.string,
+    currentChapter: PropTypes.string,
+  }).isRequired,
 };
 
 export default Book;
